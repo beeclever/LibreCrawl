@@ -1,6 +1,9 @@
 networks:
   npm-network:
     external: true
+
+volumes:
+  librecrawl_data:
     
 services:
   librecrawl:
@@ -12,7 +15,7 @@ services:
       # - "${HOST_BINDING:-127.0.0.1}:5000:5000"
     volumes:
       # Persist the user database and settings
-      - ./data:/app/data
+      - librecrawl_data:/app/data
     networks:
       - npm-network
     environment:
