@@ -1,3 +1,7 @@
+networks:
+  npm-network:
+    external: true
+    
 services:
   librecrawl:
     build: .
@@ -9,6 +13,8 @@ services:
     volumes:
       # Persist the user database and settings
       - ./data:/app/data
+    networks:
+      - npm-network
     environment:
       - FLASK_APP=main.py
       - PYTHONUNBUFFERED=1
