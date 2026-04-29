@@ -7,6 +7,10 @@ volumes:
     
 services:
   librecrawl:
+    deploy:
+      resources:
+        limits:
+          memory: 4G
     build: .
     container_name: librecrawl
     # ports:
